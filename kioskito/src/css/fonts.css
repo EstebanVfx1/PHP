@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
+@font-face{font-family:SoDoSans-Black;src: url(../fonts/SoDoSans-Black.ttf);}
+@font-face{font-family:SoDoSans-Regular;src: url(../fonts/SoDoSans-Regular.ttf);}
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
+@font-face{font-family:Oswald;src: url(../fonts/Oswald-VariableFont_wght.ttf);}
+@font-face{font-family:Merriweather Sans;src: url(../fonts/Merriweather-Italic.ttf);}
+.textoa h1,
+.text-flas h1{
+    font-family: 'SoDoSans-Black', sans-serif;
+}
+.textoa p,
+.text-fla p{
+    font-family: 'SoDoSans-Regular', sans-serif;
+}
+
+.heder-a,
+.iconoss h2{
+    font-family: 'SoDoSans-Black', Courier, monospace;
+}
+
+

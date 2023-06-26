@@ -1,0 +1,168 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+
+.header{
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.header-p{
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 5px 10%;
+    font-size: 20px;
+    box-shadow: 0 .1px 3px rgb(104, 104, 104);
+}
+
+.logo img{
+    height: 60px;
+    width: auto;
+}
+
+.nav-link li{
+    margin-top: 1rem;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+}
+
+
+
+.nav-link a{
+    font-weight: 700;
+    color: rgb(206, 206, 206);
+    padding: 10px 20px ;
+    transition: all 0.3s ease 0s;
+    border-radius: 5px;
+}
+
+.nav-link a:hover{
+    color: rgb(255, 255, 255);
+    background-color: #a18262;
+    
+}
+
+.btna-b{
+    display: none;
+}
+
+.btna button{
+    font-weight: 700;
+    color: rgb(56, 56, 56);
+    padding: .5rem 2rem;
+    border: none;
+    border-radius: 50px;
+    background: white;
+    transition: all .3s ease 0s;
+}
+
+.btna button:hover{
+    transform: scale(1.1);
+}
+
+.texto-cafe h1{
+    margin-top: 7rem;
+    color: #c79a6c;
+    font-size: 80px;
+    font-weight: 700;
+}
+
+.texto-cafe p{
+    color: white;
+    font-size: 20px;
+}
+
+/*fin-nav*/
+
+
+/* FORMULARIO */
+.styliia{
+    width: 600px;
+    padding: 50px;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+}
+
+.texto a:hover{
+    text-decoration: none;
+}
+
+.texto span,
+.texto p{
+    color: #b19880;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 720px) {
+    .styliia{
+        width: auto;
+        padding: 0;
+        box-shadow: none;
+        border-radius: none;
+    }
+}
+
+::placeholder {
+    font-weight: 500;
+  }
+
+
+.fonmtsas h2{
+    font-family: 'SoDoSans-Black', sans-serif;
+}
+
+.fonmtsas h5{
+    font-family: 'SoDoSans-Regular', sans-serif;
+    font-weight: 600;
+}
+
+.fonmtsas P{
+    font-family: 'SoDoSans-Regular', sans-serif;
+    font-weight: 700;
+    color: rgba(58, 58, 58, 0.774);
+}
+
+
+/* footer */
+.bg-4{
+    background-color: rgb(20, 20, 20);
+    
+}
+.contac{
+    color: rgb(194, 194, 194);
+}
+.iconos i{
+    padding: .0rem .8rem .8rem 0rem;
+    font-size: 30px;
+    color: rgb(194, 194, 194);
+}
+
+.bg-5{
+    background-color: rgb(19, 19, 19);
+}
+
+.foterxd a{
+    text-decoration: none;
+    color: rgb(158, 158, 158);
+    transition: all .2s ease 0s;
+}
+
+.foterxd{
+    color: #aaaaaa;
+}
+
+.foterxd a:hover,
+.termiun h6:hover{
+    color: rgb(202, 202, 202);
+}
