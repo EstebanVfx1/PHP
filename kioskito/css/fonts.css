@@ -4,6 +4,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
 @font-face{font-family:Oswald;src: url(../fonts/Oswald-VariableFont_wght.ttf);}
 @font-face{font-family:Merriweather Sans;src: url(../fonts/Merriweather-Italic.ttf);}
+@font-face{font-family:Oswald2;src: url(../fonts/Poppins-ExtraBold.ttf);}
+
+
+.fonmtsas h1{
+    font-family: Oswald2;
+    font-size: 40px;
+}
+
+
 .textoa h1,
 .text-flas h1{
     font-family: 'SoDoSans-Black', sans-serif;

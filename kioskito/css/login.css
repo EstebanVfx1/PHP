@@ -6,7 +6,7 @@
 }
 
 .colorbg{
-    background: #0f161e ;
+    background: rgb(31, 10, 78) ;
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,14 +15,14 @@
 }
 
 .header{
-    background-color: #0f161e;
+    background-color: rgb(31, 10, 78);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 
 .header-p{
-    background: #0f161e;
+    background: rgb(31, 10, 78);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -88,7 +88,7 @@
 }
 
 .mi-h2{
-    color: #5794f8 ;
+    color: #6530d8 ;
 }
 
 .parrdao{
@@ -118,9 +118,12 @@
     border-radius: 1rem;
 }
 
-.texto a:hover{
-    text-decoration: none;
-    color: white;
+.texto a{
+    text-decoration: none; 
+}
+
+.texto p:hover{
+    color: #a4a4af;
 }
 
 .texto span,
@@ -128,6 +131,7 @@
     color: #74747b ;
     font-size: 15px;
     font-weight: bold;
+    transition: all 0.3s ease 0s;
 }
 
 @media screen and (max-width: 720px) {
@@ -139,10 +143,10 @@
     }
 }
 
-.fonmtsas h1{
-    font-family: 'SoDoSans-Black', sans-serif;
+/* .fonmtsas h1{
+    font-family: merry;
     font-size: 40px;
-}
+} */
 
 .text{
     font-family: 'SoDoSans-Regular', sans-serif;

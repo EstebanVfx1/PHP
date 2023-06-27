@@ -5,22 +5,31 @@
     
 }
 
+.colorbg{
+    background: rgb(31, 10, 78) ;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
 .header{
-    background-color: white;
+    background-color: rgb(31, 10, 78);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 
 .header-p{
-    background: white;
+    background: rgb(31, 10, 78);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100px;
-    padding: 5px 10%;
+    height: 150px;
+    padding: 5px 5%;
     font-size: 20px;
-    box-shadow: 0 .1px 3px rgb(104, 104, 104);
+    /* box-shadow: 0 .1px 3px rgb(104, 104, 104); */
 }
 
 .logo img{
@@ -33,8 +42,6 @@
     display: inline-block;
     transition: all 0.3s ease 0s;
 }
-
-
 
 .nav-link a{
     font-weight: 700;
@@ -80,28 +87,51 @@
     font-size: 20px;
 }
 
+.mi-h2{
+    color: #6530d8 ;
+}
+
+.parrdao{
+    color: #74747b ;
+}
+
+#mi-input{
+    color: red;
+}
+
+
 /*fin-nav*/
 
 
-/* FORMULARIO */
 .styliia{
-    width: 600px;
+    width: 500px;
     padding: 50px;
-    height: auto;
+    height: 500px;
+}
+
+.styliia1{
+    width: 500px;
+    padding: 50px;
+    height: 500px;
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     border-radius: 1rem;
 }
 
-.texto a:hover{
-    text-decoration: none;
+.texto a{
+    text-decoration: none; 
+}
+
+.texto p:hover{
+    color: #a4a4af;
 }
 
 .texto span,
 .texto p{
-    color: #b19880;
+    color: #74747b ;
     font-size: 15px;
     font-weight: bold;
+    transition: all 0.3s ease 0s;
 }
 
 @media screen and (max-width: 720px) {
@@ -113,24 +143,21 @@
     }
 }
 
-::placeholder {
-    font-weight: 500;
-  }
+/* .fonmtsas h1{
+    font-family: merry;
+    font-size: 40px;
+} */
 
+.text{
+    font-family: 'SoDoSans-Regular', sans-serif;
+    
+}
 
-.fonmtsas h2{
+.persona-btn{
+    background: transparent;
+    border: 0;
+    color: #a18262;
     font-family: 'SoDoSans-Black', sans-serif;
-}
-
-.fonmtsas h5{
-    font-family: 'SoDoSans-Regular', sans-serif;
-    font-weight: 600;
-}
-
-.fonmtsas P{
-    font-family: 'SoDoSans-Regular', sans-serif;
-    font-weight: 700;
-    color: rgba(58, 58, 58, 0.774);
 }
 
 
@@ -165,4 +192,51 @@
 .foterxd a:hover,
 .termiun h6:hover{
     color: rgb(202, 202, 202);
+}
+
+.text-register{
+    width: 500px;
+    border-radius: 1rem;
+    padding: 30px;
+    background-color: #c7996c1a;
+    color: rgb(54, 54, 54);
+}
+
+.btn-register{
+    border: 1.8px solid #a18262;
+    border-radius: 1.5rem;
+    padding: 5px 10px;
+    color: #96714d;
+    transition: all .3s ease 0s;
+    background-color: #c7996c1a;
+    font-family: 'SoDoSans-Regular', sans-serif;
+    font-weight: 700;
+}
+
+.parrafo-register h5{
+    font-family: 'SoDoSans-Regular', sans-serif;
+    font-weight: 900;
+    color: #96714d;
+}
+
+.parrafo-register p{
+    font-family: 'SoDoSans-Regular', sans-serif;
+}
+
+.btn-register:hover{
+    background-color: #c7996c3a;
+    transform: scale(0.9);
+}
+
+@media screen and (max-width: 540px) {
+    .text-register{
+        width: auto;
+        padding: auto;
+        box-shadow: none;
+        border-radius: none;
+    }
+}
+
+.fluia{
+    margin-bottom: 120px;
 }
