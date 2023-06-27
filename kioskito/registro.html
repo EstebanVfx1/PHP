@@ -26,38 +26,38 @@
                         <p class="parrdao">Let's join us</p>
                     </div>
                     <div class="col-12 text">
-                        <form class="row  needs-validation styliia  m-auto" novalidate>
+                        <form class="row  needs-validation styliia  m-auto" novalidate action="insertaruser.php" method="POST">
                             <div class="col-md-12 mb-1">
                                 <label for="validationCustom05" class="form-label parrdao">Nombre</label>
-                                <input type="email" class="form-control form-control-lg p-2"  placeholder="Escriba su Nombre" id="validationCustom05" required>
+                                <input type="text" class="form-control form-control-lg p-2" name="Nombre" placeholder="Escriba su Nombre" id="validationCustom05" required>
                                 <div class="invalid-feedback">
                                     <i class="fa-solid fa-xmark"></i> Escriba su Nombre
                                 </div>
                             </div>
                             <div class="col-md-12  mb-1">
                                 <label for="validationCustom05" class="form-label parrdao">Apellido</label>
-                                <input type="email" class="form-control form-control-lg p-2"  placeholder="Escriba su Apellido" id="validationCustom05" required>
+                                <input type="text" class="form-control form-control-lg p-2" name="Apellido" placeholder="Escriba su Apellido" id="validationCustom05" required>
                                 <div class="invalid-feedback">
                                     <i class="fa-solid fa-xmark"></i> Escriba su Apellido
                                 </div>
                             </div>
                             <div class="col-md-12 mb-1">
                                 <label for="validationCustom05" class="form-label parrdao">Email</label>
-                                <input type="email" class="form-control form-control-lg p-2"  placeholder="Username o email address" id="validationCustom05" required>
+                                <input type="email" class="form-control form-control-lg p-2" name="email" placeholder="Username o email address" id="validationCustom05" required>
                                 <div class="invalid-feedback">
                                     <i class="fa-solid fa-xmark"></i> Escriba una direcion de email valida
                                 </div>
                             </div>
                             <div class="col-md-12 mb-1">
                                 <label for="validationCustom05" class="form-label parrdao">Contraseña</label>
-                                <input type="password" class="form-control form-control-lg p-2" placeholder="Contraseña" id="validationCustom05" required>
+                                <input type="password" class="form-control form-control-lg p-2" name="contrasena" placeholder="Contraseña" id="validationCustom05" required>
                                 <div class="invalid-feedback">
                                     <i class="fa-solid fa-xmark"></i> Escriba una contraseña valida
                                 </div>
                             </div>
                             
                             <div class="col-12 botonper text-center mt-5">
-                                <button class="" type="submit">registrarse</button>
+                                <button class="" type="submit" value="Enviar">registrarse</button>
                             </div>
                         </form>
                     </div>
