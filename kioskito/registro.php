@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/registro.css">
     <link rel="stylesheet" href="scss/custom.css">
     <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css">
 </head>
 <body class="colorbg">
     <header class="header ">
@@ -26,31 +27,35 @@
                         <p class="parrdao">Let's join us</p>
                     </div>
                     <div class="col-12 text">
+                        <?php
+                        
+
+                        ?>
                         <form class="row  needs-validation styliia  m-auto" novalidate action="insertaruser.php" method="POST">
                             <div class="col-md-12 mb-1">
                                 <label for="validationCustom05" class="form-label parrdao">Nombre</label>
-                                <input type="text" class="form-control form-control-lg p-2" name="Nombre" placeholder="Escriba su Nombre" id="validationCustom05" required>
+                                <input type="text" class="form-control form-control-lg p-2" name="Nombre" placeholder="Escriba su Nombre" required>
                                 <div class="invalid-feedback">
                                     <i class="fa-solid fa-xmark"></i> Escriba su Nombre
                                 </div>
                             </div>
                             <div class="col-md-12  mb-1">
                                 <label for="validationCustom05" class="form-label parrdao">Apellido</label>
-                                <input type="text" class="form-control form-control-lg p-2" name="Apellido" placeholder="Escriba su Apellido" id="validationCustom05" required>
+                                <input type="text" class="form-control form-control-lg p-2" name="Apellido" placeholder="Escriba su Apellido" required>
                                 <div class="invalid-feedback">
                                     <i class="fa-solid fa-xmark"></i> Escriba su Apellido
                                 </div>
                             </div>
                             <div class="col-md-12 mb-1">
                                 <label for="validationCustom05" class="form-label parrdao">Email</label>
-                                <input type="email" class="form-control form-control-lg p-2" name="email" placeholder="Username o email address" id="validationCustom05" required>
+                                <input type="email" class="form-control form-control-lg p-2" name="email" placeholder="Username o email address" required>
                                 <div class="invalid-feedback">
                                     <i class="fa-solid fa-xmark"></i> Escriba una direcion de email valida
                                 </div>
                             </div>
                             <div class="col-md-12 mb-1">
                                 <label for="validationCustom05" class="form-label parrdao">Contraseña</label>
-                                <input type="password" class="form-control form-control-lg p-2" name="contrasena" placeholder="Contraseña" id="validationCustom05" required>
+                                <input type="password" class="form-control form-control-lg p-2" name="contrasena" placeholder="Contraseña" required>
                                 <div class="invalid-feedback">
                                     <i class="fa-solid fa-xmark"></i> Escriba una contraseña valida
                                 </div>
@@ -65,12 +70,11 @@
             </div>
         </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
     <script src="js/conta.js"></script>
     <script src="js/main.js"></script>
     <script src="https://kit.fontawesome.com/83996c6a04.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/Nav.js"></script>
-    <script src="js/loading.js"></script>
 </body>
 </html>

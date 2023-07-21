@@ -24,14 +24,14 @@ if(empty($_POST["Nombre"]) or empty($_POST["Apellido"]) or empty($_POST["email"]
         }else{
             $sql=$conexion->query("INSERT INTO usuario(nombre, apellido, email, password_hash, rol) VALUES('$nombre','$apellido', '$email', '$password', 'NNN')" );
             if($sql==1){
+                session_start();
+                $_SESSION['msj'] = "SE REGISTRO CORRECTAMENTE";
                 header("Location: login.html");
-                echo "REGISTRO MELO";
+                //echo "REGISTRO MELO";
             }else{
                 echo "error pa a mimir";
             }
         }
     }
-
-    
 }
 ?>
