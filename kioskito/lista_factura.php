@@ -8,7 +8,7 @@ include_once("conexion.php")
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Forms / Layouts - NiceAdmin Bootstrap Template</title>
+  <title>Dashboard - NiceAdmin Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -28,6 +28,12 @@ include_once("conexion.php")
   <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <style>
+      .stuloranmdom{
+        height: 690px;
+
+      }
+  </style>
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -53,33 +59,37 @@ include_once("conexion.php")
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
-
   </header><!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
-
       <li class="nav-item">
         <a class="nav-link collapsed" href="index.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link " href="lista_factura.php">
+          <i class="bi bi-grid"></i>
+          <span>Facturas</span>
+        </a>
+      </li>
 
       <li class="nav-item">
-        <a class="nav-link " data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal-text"></i><span>Productos</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="forms-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="agregar_producto.php">
               <i class="bi bi-circle"></i><span>Agregar Producto</span>
             </a>
           </li>
           <li>
-            <a href="productos.php" class="active">
+            <a href="productos.php">
               <i class="bi bi-circle"></i><span>Productos</span>
             </a>
           </li>
@@ -104,6 +114,7 @@ include_once("conexion.php")
         </ul>
       </li><!-- End Tables Nav -->
 
+
     </ul>
 
   </aside><!-- End Sidebar-->
@@ -111,64 +122,117 @@ include_once("conexion.php")
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Productos</h1>
+      <h1>Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Productos</li>
-          <li class="breadcrumb-item active">Productos</li>
+          <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section">
+    <section class="section dashboard">
       <div class="row">
         <div class="col-lg-12">
-
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Default Table</h5>
-              <!-- Default Table -->
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Descripcion</th>
-                    <th scope="col">Costo</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Proveedor</th>
-                    <th scope="col">Accion</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  $consulta = $conexion->query("SELECT * FROM producto");
-                  while ($row = $consulta->fetch_array()) {
-                  ?>
-                  <tr>
-                    <th scope="row"><?php echo $row['id']?></th>
-                    <td><?php echo $row['nombre']?></td>
-                    <td><?php echo $row['descripcion']?></td>
-                    <td><?php echo $row['costo']?></td>
-                    <td><?php echo $row['precio']?></td>
-                    <td><?php echo $row['cantidad']?></td>
-                    <td><?php echo $row['proveedor']?></td>
-                    <td>
-                      <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editar<?php echo $row['id']?>">
-                        <i class="ri-edit-box-line"></i>
-                      </button> 
-                      <a type="button" class="btn btn-outline-danger" href="eliminar_producto.php?id_producto=<?php echo $row['id'] ?>">
-                        <i class="ri-delete-bin-7-fill"></i>
-                      </a>
-                    </td>
-                    <?php include "editar_productos.php"; ?>
-                  </tr>
-                  <?php } ?>
-                </tbody>
-              </table>
+              <h5 class="card-title">Facturas</h5>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">ID Factura</th>
+                      <th>Nombre Producto</th>
+                      <th>Stock Vendido</th>
+                      <th>Total Pago</th>
+                      <th>Accion</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                        $sqlListarFactura = "SELECT v.id_ventas, v.fecha, v.cantidad, v.total, p.nombre
+                        FROM factura v
+                        INNER JOIN producto p ON v.id_producto = p.id
+                        WHERE v.estado = 0";
+                        $consulta = $conexion->query($sqlListarFactura);
 
+                        while ($row = $consulta->fetch_array()) {
+                        ?>   
+                    <tr>
+                        <td>
+                            <?php echo $row['id_ventas']?>
+                        </td>
+                        <td>
+                            <?php echo $row['nombre']?>
+                        </td>
+                        <td>
+                            <?php echo $row['cantidad']?>
+                        </td>
+                        <td>
+                        <?php echo $row['total']?>
+                        </td>
+                        <td>
+                            <a name="id_ventas"  class="btn btn-outline-danger" href="anular_factura.php? id_factura=<?php echo $row['id_ventas'] ?>" >ANULAR</a>
+                        </td>
+                      </tr>
+                      <?php } ?>
+                    <tbody>
+                  </tbody>
+                </table>
+              <!-- Default Table -->
+              <!-- End Default Table Example -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section dashboard">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Facturas Anuladas</h5>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">ID Factura</th>
+                      <th>Nombre Producto</th>
+                      <th>Stock Vendido</th>
+                      <th>Total Pago</th>
+                      <th>Accion</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                        $sqlListarFactura = "SELECT v.id_ventas, v.fecha, v.cantidad, v.total, p.nombre
+                        FROM factura v
+                        INNER JOIN producto p ON v.id_producto = p.id
+                        WHERE v.estado = 1";
+                        $consulta = $conexion->query($sqlListarFactura);
+
+                        while ($row = $consulta->fetch_array()) {
+                        ?>   
+                    <tr>
+                        <td>
+                            <?php echo $row['id_ventas']?>
+                        </td>
+                        <td>
+                            <?php echo $row['nombre']?>
+                        </td>
+                        <td>
+                            <?php echo $row['cantidad']?>
+                        </td>
+                        <td>
+                        <?php echo $row['total']?>
+                        </td>
+                        <td>
+                            <a name="id_ventas" role="button" aria-disabled="true" class="btn btn-outline-danger disabled" href="anular_factura.php? id_factura=<?php echo $row['id_ventas'] ?>" disabled>ANULAR</a>
+                        </td>
+                      </tr>
+                      <?php } ?>
+                    <tbody>
+                  </tbody>
+                </table>
+              <!-- Default Table -->
               <!-- End Default Table Example -->
             </div>
           </div>
@@ -176,8 +240,6 @@ include_once("conexion.php")
       </div>
     </section>
 
-    <!-- Modal -->
-    
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -205,6 +267,10 @@ include_once("conexion.php")
   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- ... Tu tabla y código PHP anterior ... -->
+
+ 
+
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

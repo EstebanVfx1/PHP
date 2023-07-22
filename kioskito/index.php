@@ -1,3 +1,6 @@
+<?php
+include_once("conexion.php")
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,13 +65,18 @@
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
-
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="index.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="lista_factura.php">
+          <i class="bi bi-grid"></i>
+          <span>Facturas</span>
+        </a>
+      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
@@ -168,12 +176,69 @@
               </div>
             </div><!-- End Revenue Card -->
       </div>
-    </section>
-    <div class="container stuloranmdom">
-      <div>
-        <h1 class="text-center">BIENVENIDO</h1>
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Proveedores</h5>
+            <form action="agregar_factura.php" method="POST">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Producto</th>
+                      <th>Precio</th>
+                      <th>Stock</th>
+                      <th>Cantidad</th>
+                      <th>Total Pagar</th>
+                      <th>Accion</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td scope="row">
+                          <div class="col-sm-10">
+                            <select class="form-select" name="select_proveedor" aria-label="Default select example" onchange="actualizarPrecio(); actualizarStock(); actualizarTotal();">
+                              <option selected data-precio="0" data-stock="0">Selecciona el producto</option>
+                              <?php
+                              $consulta = $conexion->query("SELECT * FROM producto");
+
+                              while ($row = $consulta->fetch_array()) {
+                                ?>
+                                <option value="<?php echo $row['id'] ?>" data-stock="<?php echo $row['cantidad'] ?>" data-precio="<?php echo $row['precio'] ?>"><?php echo $row['nombre'] ?></option>
+                              <?php } ?>
+                            </select>
+                          </div>
+                        </td>
+                        <td id="precio_td">
+                          $0
+                        </td>
+                        <td id="stock_id">
+                          0
+                        </td>
+                        <td>
+                          <div class="col-sm-2">
+                            <input type="number" class="form-control" name="cantidad" onchange="actualizarTotal();">
+                          </div>
+                        </td>
+                        <td id="total_pagar">
+                          $0.00
+                        </td>
+                        <td>
+                          <button class="btn btn-outline-danger" type="submit">VENDER</button>
+                        </td>
+                      </tr>
+                    <tbody>
+                  </tbody>
+                </table>
+            </form>
+              <!-- Default Table -->
+              <!-- End Default Table Example -->
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
   </main><!-- End #main -->
 
@@ -202,6 +267,47 @@
   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- ... Tu tabla y código PHP anterior ... -->
+
+  <script>
+  function actualizarPrecio() {
+  const selectElement = document.querySelector('select[name="select_proveedor"]');
+  const precioTdElement = document.querySelector('#precio_td');
+
+  const selectedOption = selectElement.options[selectElement.selectedIndex];
+  const precio = selectedOption.getAttribute('data-precio');
+
+  precioTdElement.textContent = '$' + precio;
+}
+
+function actualizarStock() {
+  const selectElement = document.querySelector('select[name="select_proveedor"]');
+  const stockTdElement = document.querySelector('#stock_id');
+
+  const selectedOption = selectElement.options[selectElement.selectedIndex];
+  const stock = selectedOption.getAttribute('data-stock');
+
+  stockTdElement.textContent = stock;
+}
+
+function actualizarTotal() {
+    const selectElement = document.querySelector('select[name="select_proveedor"]');
+    const cantidadElement = document.querySelector('input[name="cantidad"]');
+    const totalPagarElement = document.querySelector('#total_pagar');
+
+    const selectedOption = selectElement.options[selectElement.selectedIndex];
+    const precio = parseFloat(selectedOption.getAttribute('data-precio'));
+    const cantidad = parseFloat(cantidadElement.value);
+
+    if (isNaN(precio) || isNaN(cantidad)) {
+      totalPagarElement.textContent = '$0';
+    } else {
+      const totalPagar = precio * cantidad;
+      totalPagarElement.textContent = '$' + totalPagar.toFixed(2);
+    }
+  }
+</script>
+
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

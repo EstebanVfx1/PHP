@@ -9,7 +9,7 @@ $precio = $_REQUEST['precio'];
 $cantidad = $_REQUEST['cantidad'];
 $proveedor = $_REQUEST['select_proveedor'];
 
-$consulta = "UPDATE producto SET nombre='$nombre', descripcion='$descripcion', costo=$costo, precio=$precio, cantidad=$cantidad WHERE id='$id_producto'";
+$consulta = "UPDATE producto SET nombre='$nombre', descripcion='$descripcion', costo=$costo, precio=$precio, cantidad=$cantidad, proveedor='$proveedor' WHERE id='$id_producto'";
 
 if ($conexion->query($consulta)) {
     header("Location: productos.php");
